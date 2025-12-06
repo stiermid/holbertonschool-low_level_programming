@@ -11,14 +11,14 @@ int main(void)
 
 	n = 612852475143;
 
-	for(i = 2; i <= n; i++)
+	for (i = 2; i <= n; i++)
 	{
 		while (n % i == 0)
 		{
 			n /= i;
-			if (n == 1)	
+			if (n == 1)
 			{
-				printf("%ld\n", i);			
+				printf("%ld\n", i);
 				return (0);
 			}
 		}
