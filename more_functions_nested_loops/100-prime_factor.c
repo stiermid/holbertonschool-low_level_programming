@@ -11,9 +11,6 @@ int main(void)
 
 	n = 612852475143;
 
-	printf("%ld\n", n);
-
-
 	for(i = 2; i <= n; i++)
 	{
 		while (n % i == 0)
