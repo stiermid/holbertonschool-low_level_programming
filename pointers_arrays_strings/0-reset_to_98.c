@@ -1,0 +1,11 @@
+/**
+ * reset_to_98 - updates the value of given pointer it to 98
+ * @n: pointer to given int
+ *
+ * Return: void
+ */
+void reset_to_98(int *n)
+{
+	*n = 98;
+}
+
