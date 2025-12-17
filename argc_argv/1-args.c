@@ -4,6 +4,7 @@
 /**
  * main - run
  * @argc: arg count
+ * @argv: args
  *
  * Return: 0
  */
