@@ -24,6 +24,12 @@ int main(int argc, char **argv)
 	op = argv[2];
 
 	op_fun = get_op_func(op);
+	if (op_fun == NULL)
+	{
+		printf("Error");
+		exit(2);
+	}
+
 	printf("%d\n", op_fun(a, b));
 	return (0);
 }
