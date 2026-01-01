@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int (*op_fun)(int, int);
 	int a, b;
@@ -25,5 +25,6 @@ void main(int argc, char **argv)
 
 	op_fun = get_op_func(op);
 	printf("%d\n", op_fun(a, b));
+	return (0);
 }
 
