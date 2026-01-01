@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit(1);
+		exit(98);
 	}
 
 	a = atoi(argv[1]);
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	if (op_fun == NULL)
 	{
 		printf("Error");
-		exit(2);
+		exit(99);
 	}
 
 	printf("%d\n", op_fun(a, b));
