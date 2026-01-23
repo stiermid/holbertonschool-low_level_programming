@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+void close_file(int fd);
 
 /**
  * main - runs the program
@@ -33,11 +34,11 @@ int main(int argc, char **argv)
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(fd_from);
+		close_file(fd_from);
 		exit(99);
 	}
 
-	while ((r = read(fd_from, buffer, 1024)) > 1)
+	while ((r = read(fd_from, buffer, 1024)) > 0)
 	{
 		w = write(fd_to, buffer, r);
 		if (w == -1 || w != r)
@@ -53,18 +54,21 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	if (close(fd_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-		exit(100);
-	}
-
-	if (close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
-
+	close_file(fd_from);
+	close_file(fd_to);
 	return (0);
+}
+
+/**
+ * close_file - closes the file descriptor and handles the error
+ * @fd: the file descriptor to be closed
+ */
+void close_file(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 }
 
